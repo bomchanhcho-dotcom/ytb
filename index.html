@@ -3,51 +3,83 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>African Folktales VIP — Legends, Myths & Wisdom</title>
-  <meta name="description" content="Timeless African folktales retold with heart. This page auto‑loads the latest videos (title + description) from the YouTube channel.">
-  <meta property="og:title" content="African Folktales VIP — Legends, Myths & Wisdom" />
-  <meta property="og:description" content="New folktales weekly. Legends, myths, life lessons — subscribe and never miss a story." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="/images/og.jpg" />
-  <meta property="og:url" content="https://your-vercel-domain.vercel.app" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="theme-color" content="#171717" />
+  <title>African Folktales VIP — Neon Kente Edition</title>
+  <meta name="description" content="Timeless African folktales — reimagined with a modern voice. Auto‑loads latest videos from YouTube via RSS proxy." />
+  <meta name="theme-color" content="#0B0B0F" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    :root{--bg:#0d0f12;--fg:#f2f3f5;--muted:#b7bbc0;--brand:#d4af37;--panel:#16181d}
+    :root{
+      --bg:#0b0b0f;      /* deep charcoal */
+      --panel:#111219;   /* card background */
+      --fg:#f0f2f6;      /* foreground */
+      --muted:#b7bbc5;   /* soft text */
+      --gold:#d4af37;    /* brand gold */
+      --teal:#12f0c8;    /* accent teal */
+      --rose:#ff6f91;    /* accent rose */
+    }
     *{box-sizing:border-box}
-    html,body{margin:0;background:var(--bg);color:var(--fg);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif}
+    html,body{margin:0;height:100%;background:var(--bg);color:var(--fg);font-family:Poppins,Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
     a{color:inherit;text-decoration:none}
-    .container{max-width:1100px;margin:0 auto;padding:0 20px}
-    header{position:sticky;top:0;z-index:20;background:rgba(13,15,18,.7);backdrop-filter:blur(8px);border-bottom:1px solid rgba(212,175,55,.18)}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .container{max-width:1180px;margin:0 auto;padding:0 20px}
+
+    /* Header */
+    header{position:sticky;top:0;z-index:40;background:rgba(11,11,15,.6);backdrop-filter:saturate(140%) blur(12px);border-bottom:1px solid rgba(212,175,55,.18)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
     .brand{display:flex;align-items:center;gap:10px;font-weight:800}
-    .btn{display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border-radius:12px;border:1px solid rgba(212,175,55,.35);background:linear-gradient(180deg,rgba(212,175,55,.16),rgba(212,175,55,.06));font-weight:700}
-    .hero{min-height:64vh;display:grid;place-items:center;background:radial-gradient(70% 60% at 60% 40%,rgba(212,175,55,.15),transparent 60%),url('https://images.unsplash.com/photo-1526318472351-c75fcf070305?q=80&w=2400&auto=format&fit=crop') center/cover fixed}
-    .hero-inner{text-align:center;padding:80px 0;background:linear-gradient(180deg,rgba(13,15,18,.35),rgba(13,15,18,.85))}
-    .eyebrow{display:inline-block;letter-spacing:.22em;text-transform:uppercase;font-size:12px;color:var(--brand);background:rgba(212,175,55,.08);border:1px solid rgba(212,175,55,.25);padding:6px 10px;border-radius:999px}
-    h1{margin:16px 0 8px;font-size:clamp(34px,4.6vw,56px);line-height:1.06}
-    .sub{max-width:760px;margin:0 auto;color:var(--muted);font-size:18px}
-    .section{padding:56px 0;border-top:1px solid rgba(255,255,255,.06)}
-    .grid{display:grid;gap:16px}
+    .logo{width:36px;height:36px;border-radius:10px;background:conic-gradient(from 180deg,rgba(212,175,55,.25),rgba(18,240,200,.2),rgba(255,111,145,.2),rgba(212,175,55,.25));border:1px solid rgba(212,175,55,.35);display:grid;place-items:center}
+    .logo i{width:14px;height:14px;border:2px solid var(--gold);border-radius:50%;box-shadow:0 0 0 2px rgba(212,175,55,.18)}
+    .nav a{opacity:.9}
+    .nav a:hover{opacity:1}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border-radius:14px;border:1px solid rgba(212,175,55,.35);background:linear-gradient(180deg,rgba(212,175,55,.2),rgba(212,175,55,.06));font-weight:700}
+    .btn:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(212,175,55,.14)}
+    .ghost{padding:10px 16px;border-radius:14px;border:1px solid rgba(255,255,255,.15)}
+
+    /* Hero */
+    .hero{position:relative;min-height:74vh;display:grid;place-items:center;isolation:isolate;overflow:hidden}
+    .hero:before{content:"";position:absolute;inset:-10%;background:url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=2400&auto=format&fit=crop') center/cover fixed;filter:saturate(115%) contrast(110%);z-index:-3}
+    .hero:after{content:"";position:absolute;inset:0;background:radial-gradient(70% 60% at 60% 40%,rgba(212,175,55,.25),transparent 60%),linear-gradient(180deg,rgba(11,11,15,.0),rgba(11,11,15,.88) 80%);z-index:-2}
+    .glow{position:absolute;inset:auto -20% -30% -20%;height:60vh;background:radial-gradient(40% 35% at 30% 50%,rgba(18,240,200,.25),transparent),radial-gradient(40% 35% at 70% 60%,rgba(255,111,145,.18),transparent);filter:blur(60px);z-index:-1}
+    .hero-inner{padding:90px 0;text-align:center}
+    .eyebrow{display:inline-block;letter-spacing:.22em;text-transform:uppercase;font-size:12px;color:var(--gold);background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.3);padding:6px 10px;border-radius:999px}
+    h1{margin:14px 0 10px;font-size:clamp(36px,5.2vw,66px);line-height:1.04;letter-spacing:-.02em;text-shadow:0 2px 30px rgba(0,0,0,.45)}
+    .sub{max-width:820px;margin:0 auto;color:var(--muted);font-size:18px}
+    .cta{margin-top:26px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+    /* Sections */
+    .section{padding:68px 0;border-top:1px solid rgba(255,255,255,.06)}
+    .heading{display:flex;align-items:end;justify-content:space-between;gap:14px;margin-bottom:18px}
+    .heading h2{margin:0;font-size:26px}
+    .heading .note{color:var(--muted);font-size:12px}
+
+    /* Cards */
+    .grid{display:grid;gap:18px}
     .cards{grid-template-columns:repeat(12,1fr)}
-    .card{grid-column:span 12;background:var(--panel);border:1px solid rgba(255,255,255,.08);border-radius:16px;overflow:hidden}
-    @media(min-width:820px){.card{grid-column:span 4}}
-    .thumb{aspect-ratio:16/9;background:#111;position:relative}
-    .thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0;filter:saturate(105%) contrast(105%)}
-    .card-content{padding:14px}
-    .tag{display:inline-block;font-size:12px;color:var(--brand);background:rgba(212,175,55,.08);border:1px solid rgba(212,175,55,.25);padding:4px 8px;border-radius:999px;margin-bottom:8px}
-    .h3{font-size:18px;font-weight:700;margin:6px 0}
-    .muted{color:var(--muted)}
-    footer{padding:40px 0;border-top:1px solid rgba(255,255,255,.06);color:var(--muted)}
-    .foot{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
-    .note{font-size:12px;color:var(--muted)}
-    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .card{grid-column:span 12;background:var(--panel);border:1px solid rgba(255,255,255,.08);border-radius:18px;overflow:hidden;position:relative;transition:transform .25s ease, box-shadow .25s ease}
+    .card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.35)}
+    @media(min-width:860px){.card{grid-column:span 4}}
+    .thumb{aspect-ratio:16/9;position:relative;overflow:hidden;background:#0f0f13}
+    .thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(105%) contrast(105%)}
+    .play{position:absolute;left:14px;bottom:12px;background:rgba(0,0,0,.5);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.18);padding:6px 10px;border-radius:999px;font-weight:700}
+    .shorts{position:absolute;right:12px;top:12px;background:linear-gradient(135deg,var(--rose),var(--teal));padding:3px 10px;border-radius:999px;font-size:12px;font-weight:800}
+    .card-content{padding:16px}
+    .tag{display:inline-block;font-size:12px;color:var(--gold);background:rgba(212,175,55,.08);border:1px solid rgba(212,175,55,.25);padding:4px 8px;border-radius:999px;margin-bottom:8px}
+    .title{font-size:18px;font-weight:800;margin:6px 0 4px}
+    .desc{color:var(--muted);font-size:14px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+
+    /* Newsletter + Footer */
+    .panel{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:22px}
+    .nl{display:flex;gap:10px;margin-top:12px}
+    .nl input{flex:1;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.18);background:rgba(0,0,0,.2);color:var(--fg)}
+    footer{padding:44px 0;border-top:1px solid rgba(255,255,255,.06);color:var(--muted)}
+    .foot{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between}
   </style>
 </head>
 <body>
   <header>
     <div class="container nav">
-      <div class="brand">African Folktales VIP</div>
+      <div class="brand"><span class="logo"><i></i></span> African Folktales VIP</div>
       <nav style="display:flex;gap:14px">
         <a href="#videos">Videos</a>
         <a href="#about">About</a>
@@ -57,29 +89,49 @@
   </header>
 
   <main>
+    <!-- HERO -->
     <section class="hero">
+      <div class="glow" aria-hidden="true"></div>
       <div class="container hero-inner">
-        <span class="eyebrow">Legends · Myths · Wisdom</span>
-        <h1>Timeless folktales retold with heart.</h1>
-        <p class="sub">This landing page auto‑loads your latest YouTube uploads (title + description) via a fast RSS proxy.</p>
-        <div style="margin-top:18px">
-          <a class="btn" href="https://www.youtube.com/@AfricanFolktalesVIP" target="_blank" rel="noopener">Visit Channel</a>
+        <span class="eyebrow">Legends • Myths • Wisdom</span>
+        <h1>Folktales that travel through time.</h1>
+        <p class="sub">Ancient wisdom, modern voice. New stories weekly from across Africa and the diaspora — rendered with suspense, music, and heart.</p>
+        <div class="cta">
+          <a class="btn" href="#videos">Watch Latest</a>
+          <a class="ghost" href="https://www.youtube.com/@AfricanFolktalesVIP" target="_blank" rel="noopener">Visit Channel</a>
         </div>
       </div>
     </section>
 
+    <!-- VIDEOS -->
     <section id="videos" class="section">
       <div class="container">
-        <h2 style="margin:0 0 12px">Latest Videos</h2>
-        <p class=\"note\">Loaded via a Vercel serverless RSS proxy. Set <code>CHANNEL_ID</code> below.<code>CHANNEL_ID</code> below.</p>
+        <div class="heading">
+          <h2>Latest Videos</h2>
+          <div class="note">Auto‑loaded via a Vercel RSS proxy.</div>
+        </div>
         <div id="video-grid" class="grid cards"></div>
+        <div style="display:flex;justify-content:center;margin-top:16px">
+          <button id="loadMore" class="btn" style="display:none">Load More</button>
+        </div>
       </div>
     </section>
 
+    <!-- ABOUT / NEWSLETTER -->
     <section id="about" class="section">
-      <div class="container">
-        <h2 style="margin:0 0 12px">About the Channel</h2>
-        <p class="muted">African Folktales VIP celebrates classic legends and modern retellings across Africa. Expect moral lessons, wonder, and music‑backed narration. New uploads weekly.</p>
+      <div class="container" style="display:grid;gap:22px;grid-template-columns:1fr;}">
+        <div class="panel">
+          <h2 style="margin-top:0">About African Folktales VIP</h2>
+          <p style="color:var(--muted)">We preserve and re‑tell classic legends with modern craft — narrative tension, moral clarity, and immersive sound. Perfect for families, classrooms, and anyone who loves a good story.</p>
+        </div>
+        <div class="panel">
+          <h3 style="margin-top:0">Get new folktales first</h3>
+          <p class="desc">No spam, just stories. Join the early‑access list.</p>
+          <form class="nl" action="https://formspree.io/f/your-form-id" method="POST">
+            <input type="email" name="email" placeholder="Your email" required />
+            <button class="btn" type="submit">Notify Me</button>
+          </form>
+        </div>
       </div>
     </section>
   </main>
@@ -87,55 +139,76 @@
   <footer>
     <div class="container foot">
       <div>© <span id="year"></span> African Folktales VIP</div>
-      <div style="display:flex;gap:10px"><a href="https://www.youtube.com/@AfricanFolktalesVIP" target="_blank" rel="noopener">YouTube</a> <span class="muted">·</span> <a href="#" aria-label="Contact">Contact</a></div>
+      <div style="display:flex;gap:12px">
+        <a href="https://www.youtube.com/@AfricanFolktalesVIP" target="_blank" rel="noopener">YouTube</a>
+        <span>·</span>
+        <a href="#">Contact</a>
+        <span>·</span>
+        <a href="#">Privacy</a>
+      </div>
     </div>
   </footer>
 
   <script>
-    // 1) Set your channel ID here. How to get it: open your channel → right-click → View page source → find "channelId"
-    const CHANNEL_ID = "UCIYoWBGBZVzL83L9bglDjTQ"; // e.g. UCxxxxxxxxxxxxxxxx
-    // Use serverless proxy to avoid CORS: /api/rss?channel_id=...
-    const FEED_URL = `/api/rss?channel_id=${CHANNEL_ID}`;
+    // ===== CONFIG =====
+    const CHANNEL_ID = "UCIYoWBGBZVzL83L9bglDjTQ"; // UCxxxxxxxxxxxxxxxx
+    const FEED_URL = `/api/rss?channel_id=${CHANNEL_ID}`; // serverless proxy
 
+    // ===== HELPERS =====
     const grid = document.getElementById('video-grid');
+    const loadBtn = document.getElementById('loadMore');
+    let entriesCache = []; let ptr = 0; const PAGE=6;
+
+    function shorten(t, n){return (t||'').length>n? t.slice(0,n-1)+'…' : (t||'')}
+    function escapeHTML(s){return (s||'').replace(/[&<>"']/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]))}
+    function isShorts(title){return /#?shorts/i.test(title||'')}
+
+    function renderChunk(){
+      const slice = entriesCache.slice(ptr, ptr+PAGE); ptr += slice.length;
+      slice.forEach(({id,title,desc,link})=>{
+        const thumb = id ? `https://i.ytimg.com/vi/${id}/hqdefault.jpg` : '';
+        const card = document.createElement('article');
+        card.className = 'card';
+        card.innerHTML = `
+          <a class="thumb" href="${link}" target="_blank" rel="noopener">
+            ${thumb?`<img src="${thumb}" alt="${escapeHTML(title)} thumbnail" loading="lazy">`:''}
+            <span class="play">▶ Watch</span>
+            ${isShorts(title)?'<span class="shorts">SHORTS</span>':''}
+          </a>
+          <div class="card-content">
+            <span class="tag">Folktale</span>
+            <div class="title">${escapeHTML(title)}</div>
+            <p class="desc">${escapeHTML(shorten(desc, 140))}</p>
+          </div>`;
+        grid.appendChild(card);
+      });
+      loadBtn.style.display = (ptr < entriesCache.length) ? 'inline-flex' : 'none';
+    }
 
     async function loadFeed(){
-      if(!CHANNEL_ID || CHANNEL_ID.startsWith('REPLACE')){grid.innerHTML = `<div class="card" style="grid-column:span 12"><div class="card-content"><strong>Set CHANNEL_ID first</strong><p class="muted">Edit index.html → set your YouTube channel id where indicated. Then refresh.</p></div></div>`;return}
+      if(!CHANNEL_ID || CHANNEL_ID.startsWith('REPLACE')){
+        grid.innerHTML = `<div class="panel" style="grid-column:span 12"><strong>Set CHANNEL_ID</strong><div class="desc">Edit index.html → put your YouTube channel id (starts with UC…).</div></div>`;return;
+      }
       try{
         const res = await fetch(FEED_URL);
         if(!res.ok) throw new Error('Feed fetch failed');
         const text = await res.text();
-        const xml = new window.DOMParser().parseFromString(text,'application/xml');
-        const entries = Array.from(xml.querySelectorAll('entry')).slice(0,6);
-        if(entries.length===0){grid.innerHTML = `<div class="card" style="grid-column:span 12"><div class="card-content"><strong>No videos found.</strong><p class="muted">Check the CHANNEL_ID or if the channel has public uploads.</p></div></div>`;return}
-        grid.innerHTML = '';
-        entries.forEach((e)=>{
-          const title = e.querySelector('title')?.textContent || 'Untitled';
-          const link = e.querySelector('link')?.getAttribute('href') || '#';
-          const id = (e.querySelector('yt\\:videoId')||{}).textContent || null;
-          const desc = e.querySelector('media\\:description')?.textContent || '';
-          const thumb = id ? `https://i.ytimg.com/vi/${id}/hqdefault.jpg` : null; 
-          const card = document.createElement('article');
-          card.className = 'card';
-          card.innerHTML = `
-            <a class=\"thumb\" href=\"${link}\" target=\"_blank\" rel=\"noopener\">${thumb ? `<img src=\"${thumb}\" alt=\"${escapeHTML(title)} thumbnail\" loading=\"lazy\">` : ''}</a>
-            <div class="card-content">
-              <div class="tag">Folktale</div>
-              <div class="h3">${escapeHTML(title)}</div>
-              <p class="muted">${escapeHTML(shorten(desc, 140))}</p>
-              <p style="margin-top:8px"><a class="btn" href="${link}" target="_blank" rel="noopener">Watch on YouTube</a></p>
-            </div>`;
-          grid.appendChild(card);
-        });
+        const xml = new DOMParser().parseFromString(text,'application/xml');
+        const raw = Array.from(xml.querySelectorAll('entry')).map(e=>({
+          title: e.querySelector('title')?.textContent || 'Untitled',
+          link: e.querySelector('link')?.getAttribute('href') || '#',
+          id: e.querySelector('yt\\:videoId')?.textContent || null,
+          desc: e.querySelector('media\\:description')?.textContent || ''
+        }));
+        // prefer newest first (RSS already does); keep for pagination
+        entriesCache = raw; ptr = 0; grid.innerHTML = ''; renderChunk();
       }catch(err){
-        grid.innerHTML = `<div class=\"card\" style=\"grid-column:span 12\"><div class=\"card-content\"><strong>Could not load videos.</strong><p class=\"muted\">Proxy error. Confirm <code>/api/rss</code> exists and <code>CHANNEL_ID</code> is correct.</p></div></div>`
+        grid.innerHTML = `<div class="panel" style="grid-column:span 12"><strong>Could not load videos.</strong><div class="desc">Check /api/rss function & CHANNEL_ID.</div></div>`
       }
     }
 
-    function shorten(t, n){return t.length>n? t.slice(0,n-1)+'…' : t}
-    function escapeHTML(s){return s.replace(/[&<>"']/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]))}
-
     document.getElementById('year').textContent = new Date().getFullYear();
+    loadBtn.addEventListener('click', renderChunk);
     loadFeed();
   </script>
 </body>
