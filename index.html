@@ -71,7 +71,7 @@
     <section id="videos" class="section">
       <div class="container">
         <h2 style="margin:0 0 12px">Latest Videos</h2>
-        <p class="note">Loaded directly from YouTube RSS. Replace <code>CHANNEL_ID</code> below with your channel id.</p>
+        <p class=\"note\">Loaded via a Vercel serverless proxy (no API key). Set <code>CHANNEL_ID</code> below.</p>
         <div id="video-grid" class="grid cards"></div>
       </div>
     </section>
@@ -94,7 +94,8 @@
   <script>
     // 1) Set your channel ID here. How to get it: open your channel → right-click → View page source → find "channelId"
     const CHANNEL_ID = "UCIYoWBGBZVzL83L9bglDjTQ"; // e.g. UCxxxxxxxxxxxxxxxx
-    const FEED_URL = `https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}`;
+    // Use serverless proxy to avoid CORS: /api/rss?channel_id=...
+    const FEED_URL = `/api/rss?channel_id=${CHANNEL_ID}`;
 
     const grid = document.getElementById('video-grid');
 
@@ -127,7 +128,7 @@
           grid.appendChild(card);
         });
       }catch(err){
-        grid.innerHTML = `<div class="card" style="grid-column:span 12"><div class="card-content"><strong>Could not load videos.</strong><p class="muted">Some browsers block cross‑origin RSS. If this persists on your domain, consider routing the request via a tiny serverless function on Vercel.</p></div></div>`
+        grid.innerHTML = `<div class=\"card\" style=\"grid-column:span 12\"><div class=\"card-content\"><strong>Could not load videos.</strong><p class=\"muted\">Proxy error. Confirm <code>/api/rss</code> exists and <code>CHANNEL_ID</code> is correct.</p></div></div>`
       }
     }
 
